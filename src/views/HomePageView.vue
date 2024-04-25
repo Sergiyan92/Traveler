@@ -11,7 +11,7 @@ import IBotton from '@/components/IButton/IBotton.vue'
           Простий і зручний веб додаток, який дозволить тобі відмічати твої улюблені місця, а також
           ті, в яких би ти дуже хотів побувати. Тож не зволікай і спробуй сам.
         </p>
-        <IBotton></IBotton>
+        <IBotton>Почати роботу</IBotton>
       </div>
     </section>
     <section class="flex-1">
