@@ -11,12 +11,6 @@ const superUser = reactive({ name: 'Super Name', age: 1000 })
 const increment = () => {
   counter.value += 1
 }
-const changeUserName = () => {
-  user.value.name = 'Harry Potter'
-}
-const changeSuperUserName = () => {
-  superUser.name = 'Ne Super User name'
-}
 </script>
 
 <template>
@@ -28,10 +22,7 @@ const changeSuperUserName = () => {
     <slot name="list">
       <FavoritPlace v-for="n in 4" :key="n" />
     </slot>
-
     <slot></slot>
-    <IBotton class="w-full mt-10" @click="changeSuperUserName">ChangeSuper</IBotton>
-    <IBotton class="w-full mt-10" @click="increment">Додати маркер</IBotton>
-    <IBotton class="w-full mt-10" @click="changeUserName">Change</IBotton>
+    <IBotton class="w-full mt-10" variant="gradient" @click="increment">Додати маркер</IBotton>
   </div>
 </template>
