@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 
 const props = defineProps({
   variant: {
@@ -10,8 +10,11 @@ const props = defineProps({
     }
   }
 })
-const bgStyles =
-  props.variant === 'gradient' ? 'bg-gradient-to-r from-[#FFA279] to-[#F3743D]' : 'bg-[#FFA279]'
+const bgStyles = computed(() => {
+  return props.variant === 'gradient'
+    ? 'bg-gradient-to-r from-[#FFA279] to-[#F3743D]'
+    : 'bg-[#FFA279]'
+})
 </script>
 <template>
   <button class="rounded-xl py-3 px-10 text-white font-bold -tracking-tighter" :class="bgStyles">
