@@ -6,7 +6,12 @@ import IBotton from '../IButton/IBotton.vue'
 <template>
   <div class="px-6">
     <div class="text-gray mb-4">Додані маркери</div>
-    <FavoritPlace v-for="n in 4" :key="n" />
+    <slot name="label"></slot>
+    <slot name="list">
+      <FavoritPlace v-for="n in 4" :key="n" />
+    </slot>
+
+    <slot></slot>
     <IBotton class="w-full mt-10">Додати маркер</IBotton>
   </div>
 </template>
