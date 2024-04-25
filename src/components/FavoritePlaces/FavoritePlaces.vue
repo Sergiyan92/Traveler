@@ -2,10 +2,11 @@
 import FavoritPlace from '../FavoritPlace/FavoritPlace.vue'
 import IBotton from '../IButton/IBotton.vue'
 
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 const counter = ref(0) // {value:0}
-const user = ref({ name: 'Tom', age: '20' })
+const user = ref({ name: 'Tom', age: 20 })
+const superUser = reactive({ name: 'Super Name', age: 1000 })
 
 const increment = () => {
   counter.value += 1
@@ -13,11 +14,15 @@ const increment = () => {
 const changeUserName = () => {
   user.value.name = 'Harry Potter'
 }
+const changeSuperUserName = () => {
+  superUser.name = 'Ne Super User name'
+}
 </script>
 
 <template>
   <div class="px-6">
     <div class="text-gray">User name: {{ user.name }}</div>
+    <div class="text-gray">Super User name: {{ superUser.name }}</div>
     <div class="text-gray mb-4">Додані маркери ({{ counter }})</div>
     <slot name="label"></slot>
     <slot name="list">
@@ -25,6 +30,7 @@ const changeUserName = () => {
     </slot>
 
     <slot></slot>
+    <IBotton class="w-full mt-10" @click="changeSuperUserName">ChangeSuper</IBotton>
     <IBotton class="w-full mt-10" @click="increment">Додати маркер</IBotton>
     <IBotton class="w-full mt-10" @click="changeUserName">Change</IBotton>
   </div>
