@@ -17,6 +17,7 @@ const changeButtonVariant = () => {
     <div class="text-gray mb-4">Додані маркери</div>
     <div class="py-5">
       <IInput label="Some label" />
+      <a href="/" class="text-black">Click me</a>
     </div>
     <slot name="label"></slot>
     <slot name="list">
