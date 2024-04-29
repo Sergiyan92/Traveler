@@ -19,6 +19,7 @@ const userDate = reactive({
   >
     <IInput class="mb-4" label="Повне ім'я" v-model="userDate.name" />
     <IInput
+      type="textarea"
       class="mb-4"
       label="Електронна пошта"
       placeholder="test@test.com"
