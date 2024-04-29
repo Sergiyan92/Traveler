@@ -24,7 +24,7 @@ const userDate = reactive({
       placeholder="test@test.com"
       v-model="userDate.email"
     />
-    <IInput class="mb-4" label="Пароль" type="password" v-model="userDate.password" />
+    <IInput label="Пароль" type="password" v-model="userDate.password" />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit">Створити аккаунт</IBotton>
   </FormContainer>
 </template>

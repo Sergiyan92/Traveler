@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
 import FormContainer from '../FormContainer.vue'
 import IInput from '@/components/IInput/IInput.vue'
 import IBotton from '@/components/IButton/IBotton.vue'
@@ -9,13 +9,6 @@ const userDate = reactive({
   password: '',
   email: ''
 })
-watch(
-  userDate,
-  () => {
-    console.log('changed')
-  },
-  { immediate: true }
-)
 </script>
 
 <template>
@@ -26,13 +19,7 @@ watch(
       v-model="userDate.email"
       label="Електронна пошта"
     />
-    <IInput
-      class="mb-4"
-      type="password"
-      placeholder="Пароль"
-      v-model="userDate.password"
-      label="Пароль"
-    />
+    <IInput type="password" placeholder="Пароль" v-model="userDate.password" label="Пароль" />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit">Увійти</IBotton>
   </FormContainer>
 </template>
