@@ -11,7 +11,7 @@ import BaseLayout from '@/layouts/BaseLayout.vue'
         Простий і зручний веб додаток, який дозволить тобі відмічати твої улюблені місця, а також
         ті, в яких би ти дуже хотів побувати. Тож не зволікай і спробуй сам.
       </p>
-      <IBotton>Почати роботу</IBotton>
+      <IBotton to="/auth/registration">Почати роботу</IBotton>
     </div>
   </BaseLayout>
 </template>

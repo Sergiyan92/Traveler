@@ -11,6 +11,7 @@ const routes = [
   { path: '/map', component: HomePage },
   {
     path: '/auth',
+    redirect: '/auth/login',
     component: AuthPage,
     children: [
       { path: 'login', component: LoginPage },

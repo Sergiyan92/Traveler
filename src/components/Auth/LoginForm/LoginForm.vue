@@ -1,6 +1,5 @@
 <script setup>
 import { reactive } from 'vue'
-import FormContainer from '../FormContainer.vue'
 import IInput from '@/components/IInput/IInput.vue'
 import IBotton from '@/components/IButton/IBotton.vue'
 
@@ -12,7 +11,7 @@ const userDate = reactive({
 </script>
 
 <template>
-  <FormContainer @submit.prevent="emit('submit', userDate)">
+  <form @submit.prevent="emit('submit', userDate)">
     <IInput
       class="mb-4"
       placeholder="test@test.com"
@@ -21,5 +20,5 @@ const userDate = reactive({
     />
     <IInput type="password" placeholder="Пароль" v-model="userDate.password" label="Пароль" />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit">Увійти</IBotton>
-  </FormContainer>
+  </form>
 </template>
