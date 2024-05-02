@@ -6,6 +6,10 @@ const props = defineProps({
   items: {
     required: true,
     type: Array
+  },
+  activeId: {
+    required: true,
+    type: [Number, null]
   }
 })
 </script>
@@ -13,7 +17,6 @@ const props = defineProps({
 <template>
   <div class="px-6">
     <div class="text-gray mb-4">Додані маркери</div>
-
     <slot name="label"></slot>
     <slot name="list">
       <FavoritPlace
@@ -22,6 +25,7 @@ const props = defineProps({
         :title="place.title"
         :description="place.description"
         :img="place.img"
+        :is-active="place.id === props.activeId"
       />
     </slot>
     <slot></slot>
