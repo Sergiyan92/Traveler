@@ -26,8 +26,9 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
+.env
 *.tsbuildinfo
 
 #map api token
+
 /src/map/token.js
