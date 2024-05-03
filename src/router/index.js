@@ -7,8 +7,8 @@ const LoginPage = () => import('../views/LoginView.vue')
 const RegistrationPage = () => import('../views/RegistrationView.vue')
 
 const routes = [
-  { path: '/', component: GreetingPage },
-  { path: '/map', component: HomePage },
+  { path: '/', component: HomePage },
+  { path: '/map', component: GreetingPage },
   {
     path: '/auth',
     redirect: '/auth/login',
