@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
 export const useMutation = ({ mutationFn, onSuccess, onError }) => {
-  const data = null
+  const data = ref()
   const isLoading = ref(false)
   const error = ref(null)
 
@@ -12,8 +12,8 @@ export const useMutation = ({ mutationFn, onSuccess, onError }) => {
       data.value = await mutationFn(...args)
       error.value = null
       onSuccess?.(data)
-    } catch (err) {
-      error.value = err
+    } catch (e) {
+      error.value = e
       onError?.(error)
     } finally {
       isLoading.value = false
