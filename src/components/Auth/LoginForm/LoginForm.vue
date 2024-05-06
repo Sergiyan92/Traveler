@@ -3,6 +3,12 @@ import { reactive } from 'vue'
 import IInput from '@/components/IInput/IInput.vue'
 import IBotton from '@/components/IButton/IBotton.vue'
 
+const props = defineProps({
+  isLoading: {
+    default: false,
+    type: Boolean
+  }
+})
 const emit = defineEmits(['submit'])
 const userDate = reactive({
   password: '',
@@ -19,6 +25,8 @@ const userDate = reactive({
       label="Електронна пошта"
     />
     <IInput type="password" placeholder="Пароль" v-model="userDate.password" label="Пароль" />
-    <IBotton class="mt-10 w-full" variant="gradient" type="submit">Увійти</IBotton>
+    <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading">
+      Увійти
+    </IBotton>
   </form>
 </template>
