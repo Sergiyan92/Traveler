@@ -10,6 +10,14 @@ const props = defineProps({
   isOpen: {
     defaul: false,
     type: Boolean
+  },
+  isLoading: {
+    defaul: false,
+    type: Boolean
+  },
+  hasError: {
+    defaul: false,
+    type: Boolean
   }
 })
 
@@ -24,6 +32,12 @@ const handleUpload = (url) => {
   formData.img = url
 }
 
+const resetForm = () => {
+  formData.descr = ''
+  formData.img = ''
+  formData.title = ''
+}
+
 const uploadText = computed(() => {
   return formData.img ? 'Натисніть тут, щоб змінити фото' : 'Натисніть тут, щоб додати фото'
 })
@@ -31,7 +45,7 @@ const uploadText = computed(() => {
 
 <template>
   <IModal v-if="props.isOpen" @close="emit('close')">
-    <form class="min-w-[420px]" @submit.prevent="emit('submit', formData)">
+    <form class="min-w-[420px]" @submit.prevent="emit('submit', formData, resetForm)">
       <div class="flex gap-1 justify-center font-bold text-center mb-10">
         <MarkerIcon /> Додати маркер
       </div>
@@ -41,7 +55,8 @@ const uploadText = computed(() => {
         <img v-if="formData.img" :src="formData.img" alt="img" class="w-8 h-8 object-cover" />
         <InputImage class="" @uploaded="handleUpload">{{ uploadText }}</InputImage>
       </div>
-      <IBotton class="w-full" variant="gradient">Додати</IBotton>
+      <IBotton class="w-full" variant="gradient" :is-loading="props.isLoading">Додати</IBotton>
+      <div v-if="props.hasError" class="text-red-500">Щось пішло не так</div>
     </form>
   </IModal>
 </template>
