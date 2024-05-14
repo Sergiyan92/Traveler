@@ -3,6 +3,9 @@ import { useModal } from '@/composables/useModal'
 import FavoritPlace from '../FavoritPlace/FavoritPlace.vue'
 import IBotton from '../IButton/IBotton.vue'
 import EditPlaceModal from '../EditPlaceModal/EditPlaceModal.vue'
+import { computed, ref } from 'vue'
+import { useMutation } from '@/composables/useMutation'
+import { updateFavoritePlace } from '@/api/favorite-places'
 
 const props = defineProps({
   items: {
@@ -15,8 +18,29 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['place-clicked', 'create'])
+const emit = defineEmits(['place-clicked', 'create', 'updated'])
+
 const { isOpen: isEditOpen, openModal: openEditModal, closeModal: closeEditModal } = useModal()
+
+const { mutation: updatePlace, isLoading } = useMutation({
+  mutationFn: (formData) => updateFavoritePlace(formData),
+  onSuccess: () => {
+    closeEditModal()
+    emit('updated')
+  }
+})
+
+const selectedId = ref(null)
+const selectedItem = computed(() => props.items.find((place) => place.id === selectedId.value))
+
+const handleEditPlace = (id) => {
+  selectedId.value = id
+  openEditModal()
+}
+
+const handleSubmit = (formData) => {
+  updatePlace(formData)
+}
 </script>
 
 <template>
@@ -33,11 +57,19 @@ const { isOpen: isEditOpen, openModal: openEditModal, closeModal: closeEditModal
         :img="place.img"
         :is-active="place.id === props.activeId"
         @click="emit('place-clicked', place.id)"
-        @edit="openEditModal"
+        @edit="handleEditPlace(place.id)"
       />
-      <EditPlaceModal :is-open="isEditOpen" @close="closeEditModal" />
+      <EditPlaceModal
+        :is-open="isEditOpen"
+        @close="closeEditModal"
+        :is-loading="isLoading"
+        :place="selectedItem"
+        @submit="handleSubmit()"
+      />
     </slot>
     <slot></slot>
-    <IBotton class="w-full mt-10" variant="gradient" @click="emit('create')">Додати маркер</IBotton>
+    <IBotton class="w-full mt-10" variant="gradient" @click="emit('create')">
+      Додати маркер
+    </IBotton>
   </div>
 </template>
