@@ -35,7 +35,7 @@ const emit = defineEmits(['edit', 'delete'])
             <FavoritPlaceIconButton @click="emit('edit')">
               <EditIcon />
             </FavoritPlaceIconButton>
-            <FavoritPlaceIconButton @click="emit('delete')">
+            <FavoritPlaceIconButton @click.stop="emit('delete')">
               <DeleteIcon />
             </FavoritPlaceIconButton>
           </div>
