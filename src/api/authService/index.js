@@ -26,28 +26,24 @@ class AuthService {
   }
 
   async login(body) {
-    // const { data } = await clientFetch.post('/users/login', body)
-    const { data } = await clientFetch.post('/user/login', body)
-    //   /user/login
+    const { data } = await clientFetch.post('/api/auth/login', body)
     const { token } = data
     this.setToken(token)
   }
 
   async registerUser(body) {
-    // const { data } = await clientFetch.post('/users/signup', body)
-    const { data } = await clientFetch.post('/user/register', body)
-    //   /user/register
+    const { data } = await clientFetch.post('/api/auth/signup', body)
     const { accessToken } = data
     this.setToken(accessToken)
   }
 
   async logout() {
-    await clientFetch.get('/user/logout')
+    await clientFetch.post('/api/auth/logout')
     this.clearToken()
   }
 
   async refresh() {
-    const { data } = await clientFetch.get('/user/refresh')
+    const { data } = await clientFetch.get('/api/auth/refresh')
     const { token } = data
     this.setToken(token)
   }
@@ -76,7 +72,7 @@ clientFetch.interceptors.response.use(
       try {
         return await authService.refresh()
       } catch (err) {
-        router.push('/auth/login')
+        router.push('/api/auth/login')
         return Promise.reject(err)
       }
     }

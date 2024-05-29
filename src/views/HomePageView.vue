@@ -60,6 +60,7 @@ const handleAddPlace = async (formData, resetForm) => {
     ...formData,
     coordinates: mapMarkerLngLat.value
   }
+  console.log(body)
 
   await addPlace(body)
   resetForm()

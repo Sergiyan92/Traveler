@@ -33,12 +33,14 @@ const {
   closeModal: closeConfirmationModal
 } = useModal()
 const { mutation: updatePlace, isLoading } = useMutation({
-  mutationFn: (formData) => updateFavoritePlace(formData),
+  mutationFn: ({ id, formData }) => updateFavoritePlace(id, formData),
+
   onSuccess: () => {
     closeEditModal()
     emit('updated')
   }
 })
+
 const {
   mutation: deletePlace,
   isLoading: isDeleting,
@@ -60,9 +62,8 @@ const handleEditPlace = (id) => {
 }
 
 const handleSubmit = (formData) => {
-  updatePlace(formData)
+  updatePlace({ id: formData.id, formData })
 }
-
 const handleOpenConfirmationModal = (id) => {
   idOfDeletedItem.value = id
   openConfirmationModal()

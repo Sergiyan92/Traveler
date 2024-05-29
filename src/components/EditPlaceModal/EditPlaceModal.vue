@@ -23,22 +23,33 @@ const emit = defineEmits(['close', 'submit'])
 const formData = ref({
   id: '',
   title: '',
-  description: '',
+  descr: '',
   img: '',
   coordinates: null
 })
 
 watch(
   () => props.place,
-  () => {
-    formData.value = {
-      ...props.place
+  (newPlace) => {
+    if (newPlace) {
+      formData.value = {
+        id: newPlace.id || '',
+        title: newPlace.title || '',
+        descr: newPlace.descr || '',
+        img: newPlace.img || '',
+        coordinates: newPlace.coordinates || null
+      }
     }
-  }
+  },
+  { immediate: true }
 )
 
 const handleChangeImg = (img) => {
   formData.value.img = img
+}
+
+const handleSubmit = () => {
+  emit('submit', { ...formData.value })
 }
 </script>
 
@@ -49,7 +60,7 @@ const handleChangeImg = (img) => {
         <MarkerIcon height="18" width="18" />
         <span class="font-bold text-base">Редагувати маркер</span>
       </div>
-      <form @submit.prevent="emit('submit', formData)">
+      <form @submit.prevent="handleSubmit">
         <div class="flex gap-5">
           <div class="w-5/12">
             <img
@@ -60,11 +71,11 @@ const handleChangeImg = (img) => {
           </div>
 
           <div class="w-7/12">
-            <IInput label="Локація" v-model="formData.title" />
+            <IInput label="Локація" v-model="formData.title" required />
             <div class="mt-4">
-              <IInput label="Опис" type="textarea" v-model="formData.description" />
+              <IInput label="Опис" type="textarea" v-model="formData.descr" />
             </div>
-            <IButton class="mt-10 w-full" variant="gradient" :is-loading="isLoading">
+            <IButton class="mt-10 w-full" variant="gradient" :is-loading="props.isLoading">
               Зберегти
             </IButton>
           </div>

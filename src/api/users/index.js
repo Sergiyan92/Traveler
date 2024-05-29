@@ -1,15 +1,15 @@
 import { clientFetch } from '../clientFetch'
 
 export const login = (body) => {
-  return clientFetch.post('/users/login', body)
+  return clientFetch.post('/api/auth/login', body)
 }
 
 export const registerUser = (body) => {
-  return clientFetch.post('/users/signup', body)
+  return clientFetch.post('/api/auth/signup', body)
 }
 
 export const logout = () => {
-  return clientFetch.get('/user/logout')
+  return clientFetch.post('/api/auth/logout')
 }
 
 export const refresh = () => {
@@ -17,5 +17,5 @@ export const refresh = () => {
 }
 
 export const getUserInfo = () => {
-  return clientFetch.get('/user/me')
+  return clientFetch.get('/api/auth/refresh')
 }
