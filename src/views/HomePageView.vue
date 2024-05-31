@@ -71,14 +71,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="flex h-screen">
-    <div class="bg-white h-full w-[400px] shrink-0 overflow-auto pb-10">
+  <main class="flex flex-col md:flex-row h-screen">
+    <div class="bg-white h-full w-full md:w-[400px] shrink-0 overflow-auto pb-10">
       <UserInfo />
       <div v-if="isLoadingPlace" class="text-black px-6">Loading...</div>
       <FavoritePlaces
         :items="favoritePlaces"
         :active-id="activeId"
-        :is-places-loading="isPlacesLoading"
+        :is-places-loading="isLoadingPlace"
         @place-clicked="changePlace"
         @create="openModal"
         @updated="getPlaces"
