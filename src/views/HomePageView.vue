@@ -93,7 +93,7 @@ onMounted(() => {
         @submit="handleAddPlace"
       />
     </div>
-    <div class="w-full h-full flex items-center justify-center text-6xl">
+    <div class="w-full h-full md:h-full flex items-center justify-center text-6xl">
       <MapboxMap
         class="w-full h-full"
         :center="[30.523333, 50.450001]"
