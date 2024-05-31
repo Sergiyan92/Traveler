@@ -33,7 +33,7 @@ const link = computed(() => {
 <template>
   <component
     :is="componentName"
-    class="rounded-xl py-3 px-10 text-white font-bold -tracking-tighter"
+    class="rounded-xl py-3 sm:px-10 text-white font-bold -tracking-tighter"
     :class="bgStyles"
     :to="link"
   >
