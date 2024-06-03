@@ -20,6 +20,7 @@ const handleAvatarChange = async (event) => {
   formData.append('avatar', file)
 
   await updateAvatar(formData)
+  getUser()
 }
 
 onMounted(() => {
@@ -36,7 +37,7 @@ onMounted(() => {
     >
       <img
         v-if="userInfo?.data?.avatarUrl"
-        :src="userInfo.data.avatarUrl"
+        :src="`https://travel-backend-3glj.onrender.com/${userInfo.data.avatarUrl.replace(/\\/g, '/')}`"
         class="w-full h-full rounded-full"
       />
       <UserIcon v-else class="text-white" />

@@ -20,6 +20,10 @@ export const getUserInfo = () => {
   return clientFetch.get('/api/auth/refresh')
 }
 
-export const updateAvatar = (body) => {
-  return clientFetch.patch('/api/auth/avatars', body)
+export const updateAvatar = (formData) => {
+  return clientFetch.patch('/api/auth/avatars', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
 }
