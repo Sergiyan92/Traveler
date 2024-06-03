@@ -19,3 +19,7 @@ export const refresh = () => {
 export const getUserInfo = () => {
   return clientFetch.get('/api/auth/refresh')
 }
+
+export const updateAvatar = (body) => {
+  return clientFetch.patch('/api/auth/avatars', body)
+}
