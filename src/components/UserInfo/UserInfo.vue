@@ -1,6 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
-import UserIcon from './UserIcon.vue'
+import { onMounted, ref } from 'vue'
 import { useMutation } from '../../composables/useMutation'
 import { getUserInfo, updateAvatar } from '../../api/users'
 
@@ -26,6 +25,14 @@ const handleAvatarChange = async (event) => {
 onMounted(() => {
   getUser()
 })
+
+const fileInput = ref(null)
+
+const openFileDialog = () => {
+  if (fileInput.value) {
+    fileInput.value.click()
+  }
+}
 </script>
 
 <template>
@@ -40,14 +47,18 @@ onMounted(() => {
         :src="`https://travel-backend-3glj.onrender.com/${userInfo.data.avatarUrl.replace(/\\/g, '/')}`"
         class="w-full h-full rounded-full"
       />
-      <UserIcon v-else class="text-white" />
-      <input
-        type="file"
-        @change="handleAvatarChange"
-        class="absolute inset-0 opacity-0 cursor-pointer"
-      />
+      <input type="file" ref="fileInput" @change="handleAvatarChange" class="hidden" />
     </div>
     <span v-if="isLoading">Loading...</span>
     <span v-else-if="userInfo && userInfo.data">{{ userInfo.data.name }}</span>
+    <button @click="openFileDialog" class="ml-2 px-1 py-1 bg-primary text-white rounded text-xs">
+      Change Avatar
+    </button>
   </div>
 </template>
+
+<style scoped>
+.hidden {
+  display: none;
+}
+</style>
