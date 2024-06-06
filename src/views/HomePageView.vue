@@ -120,3 +120,27 @@ onMounted(() => {
     </div>
   </main>
 </template>
+
+<style scoped>
+@media (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .h-full {
+    height: 50vh;
+  }
+
+  .md-w-400px {
+    width: 100%;
+  }
+
+  .md-h-full {
+    height: auto;
+  }
+}
+</style>
