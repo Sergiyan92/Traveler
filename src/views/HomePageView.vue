@@ -10,7 +10,6 @@ import { useModal } from '../composables/useModal'
 import CreateNewPlaceModal from '../components/CreateNewPlaceModal/CreateNewPlaceModal.vue'
 import { useMutation } from '@/composables/useMutation'
 import UserInfo from '../components/UserInfo/UserInfo.vue'
-import LogoutButton from '../components/LogoutButton/LogoutButton.vue'
 
 const mapMarkerLngLat = ref(null)
 const activeId = ref(null)
@@ -84,7 +83,6 @@ onMounted(() => {
         @updated="getPlaces"
       />
 
-      <LogoutButton class="mt-10" />
       <CreateNewPlaceModal
         :is-loading="isAddingPlace"
         :has-error="error"
@@ -123,24 +121,12 @@ onMounted(() => {
 
 <style scoped>
 @media (max-width: 767px) {
-  .flex {
-    flex-direction: column;
-  }
-
   .w-full {
     width: 100%;
   }
 
   .h-full {
     height: 50vh;
-  }
-
-  .md-w-400px {
-    width: 100%;
-  }
-
-  .md-h-full {
-    height: auto;
   }
 }
 </style>

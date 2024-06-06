@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useMutation } from '../../composables/useMutation'
 import { getUserInfo, updateAvatar } from '../../api/users'
-
+import LogoutButton from '../LogoutButton/LogoutButton.vue'
 const {
   data: userInfo,
   mutation: getUser,
@@ -54,6 +54,7 @@ const openFileDialog = () => {
     <button @click="openFileDialog" class="ml-2 px-1 py-1 bg-primary text-white rounded text-xs">
       Change Avatar
     </button>
+    <LogoutButton class="ml-10" />
   </div>
 </template>
 
