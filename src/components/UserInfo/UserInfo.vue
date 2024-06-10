@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import { useMutation } from '../../composables/useMutation'
 import { getUserInfo, updateAvatar } from '../../api/users'
 import LogoutButton from '../LogoutButton/LogoutButton.vue'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.vue'
 const {
   data: userInfo,
   mutation: getUser,
@@ -36,6 +37,7 @@ const openFileDialog = () => {
 </script>
 
 <template>
+  <LanguageSwitcher />
   <div
     class="flex sticky top-0 items-center text-black gap-3 bg-[#ffe6dc] border-solid border-b-2 border-primary rounded-bl-2xl rounded-br-2xl px-6 py-4 mb-10"
   >
@@ -52,7 +54,7 @@ const openFileDialog = () => {
     <span v-if="isLoading">Loading...</span>
     <span v-else-if="userInfo && userInfo.data">{{ userInfo.data.name }}</span>
     <button @click="openFileDialog" class="ml-2 px-1 py-1 bg-primary text-white rounded text-xs">
-      Change Avatar
+      {{ $t('change avatar') }}
     </button>
     <LogoutButton class="ml-10" />
   </div>

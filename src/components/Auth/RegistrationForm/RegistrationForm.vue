@@ -19,14 +19,19 @@ const userDate = reactive({
 
 <template>
   <form @submit.prevent="emit('submit', toRaw(userDate))">
-    <IInput class="mb-4" label="Повне ім'я" v-model="userDate.name" />
+    <IInput class="mb-4" :label="$t('name')" v-model="userDate.name" />
     <IInput
       class="mb-4"
-      label="Електронна пошта"
+      :label="$t('email')"
       placeholder="test@test.com"
       v-model="userDate.email"
     />
-    <IInput label="Пароль" type="password" v-model="userDate.password" />
+    <IInput
+      :label="$t('password')"
+      type="password"
+      v-model="userDate.password"
+      :placeholder="$t('password')"
+    />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading"
       >Створити аккаунт</IBotton
     >

@@ -58,7 +58,7 @@ const handleSubmit = () => {
     <div class="w-[750px]">
       <div class="flex gap-2 items-center mb-10">
         <MarkerIcon height="18" width="18" />
-        <span class="font-bold text-base">Редагувати маркер</span>
+        <span class="font-bold text-base">{{ $t('edit marker') }}</span>
       </div>
       <form @submit.prevent="handleSubmit">
         <div class="flex gap-5">
@@ -71,18 +71,18 @@ const handleSubmit = () => {
           </div>
 
           <div class="w-7/12">
-            <IInput label="Локація" v-model="formData.title" required />
+            <IInput :label="$t('location')" v-model="formData.title" required />
             <div class="mt-4">
-              <IInput label="Опис" type="textarea" v-model="formData.descr" />
+              <IInput :label="$t('description')" type="textarea" v-model="formData.descr" />
             </div>
             <IButton class="mt-10 w-full" variant="gradient" :is-loading="props.isLoading">
-              Зберегти
+              {{ $t('save') }}
             </IButton>
           </div>
         </div>
 
         <InputImage class="mt-3" @uploaded="handleChangeImg">
-          <span class="text-xs">Натисніть тут, щоб додати інше фото</span>
+          <span class="text-xs">{{ $t('add another') }}</span>
         </InputImage>
       </form>
     </div>

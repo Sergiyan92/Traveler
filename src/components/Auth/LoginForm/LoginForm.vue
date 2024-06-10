@@ -22,9 +22,14 @@ const userDate = reactive({
       class="mb-4"
       placeholder="test@test.com"
       v-model="userDate.email"
-      label="Електронна пошта"
+      :label="$t('email')"
     />
-    <IInput type="password" placeholder="Пароль" v-model="userDate.password" label="Пароль" />
+    <IInput
+      type="password"
+      :placeholder="$t('password')"
+      v-model="userDate.password"
+      :label="$t('password')"
+    />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading">
       Увійти
     </IBotton>
