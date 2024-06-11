@@ -31,7 +31,7 @@ const userDate = reactive({
       :label="$t('password')"
     />
     <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading">
-      Увійти
+      {{ $t('signin') }}
     </IBotton>
   </form>
 </template>

@@ -32,8 +32,8 @@ const userDate = reactive({
       v-model="userDate.password"
       :placeholder="$t('password')"
     />
-    <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading"
-      >Створити аккаунт</IBotton
-    >
+    <IBotton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading">{{
+      $t('create account')
+    }}</IBotton>
   </form>
 </template>
