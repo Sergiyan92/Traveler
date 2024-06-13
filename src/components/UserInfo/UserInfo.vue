@@ -4,6 +4,7 @@ import { useMutation } from '../../composables/useMutation'
 import { getUserInfo, updateAvatar } from '../../api/users'
 import LogoutButton from '../LogoutButton/LogoutButton.vue'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher.vue'
+
 const {
   data: userInfo,
   mutation: getUser,
@@ -61,9 +62,3 @@ const openFileDialog = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.hidden {
-  display: none;
-}
-</style>

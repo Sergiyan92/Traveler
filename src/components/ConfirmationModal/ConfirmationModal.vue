@@ -34,6 +34,6 @@ const emit = defineEmits(['cancel', 'confirm'])
         {{ $t('confirm') }}
       </IButton>
     </div>
-    <div v-if="hasError" class="text-red-500">Щось пішло не так</div>
+    <div v-if="hasError" class="text-red-500">{{ $t('wrong') }}</div>
   </IModal>
 </template>

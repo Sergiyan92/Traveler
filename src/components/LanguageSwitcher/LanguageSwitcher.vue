@@ -10,7 +10,7 @@ const changeLanguage = (lang) => {
 </script>
 
 <template>
-  <div class="flex gap-2 pl-2">
+  <div class="flex gap-2 pl-2 justify-center">
     <button @click="changeLanguage('en')">
       <EnglishIcon style="width: 30px; height: 15px" />
     </button>
