@@ -37,4 +37,4 @@ npm run build
 
 ## Автори
 
-- [Ваше ім'я](https://github.com/Sergiyan92/)
+- [Сергій Кондратчук](https://github.com/Sergiyan92/)
