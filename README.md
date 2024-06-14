@@ -1,35 +1,40 @@
-# traveler
+````markdown
+# Traveler
 
-This template should help get you started developing with Vue 3 in Vite.
+Traveler - це веб-додаток для подорожей, що дозволяє користувачам реєструватися, входити в систему, змінювати мову інтерфейсу та багато іншого.
 
-## Recommended IDE Setup
+## Встановлення
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+Для встановлення проекту, виконайте наступні команди:
 
 ```sh
+git clone https://github.com/Sergiyan92/Traveler.git
+cd Traveler
 npm install
 ```
+````
 
-### Compile and Hot-Reload for Development
+## Використання
+
+Для запуску проекту в режимі розробки, виконайте:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Для створення білду для продакшену, використовуйте:
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Структура проекту
 
-```sh
-npm run lint
-```
+- `src/components` - тут зберігаються всі компоненти.
+- `src/layouts` - макети для організації структури сторінок.
+- `src/views` - сторінки для роутів.
+- `src/router` - конфігурації роутів.
+
+## Автори
+
+- [Ваше ім'я](https://github.com/Sergiyan92/)
