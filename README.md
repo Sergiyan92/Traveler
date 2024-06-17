@@ -35,6 +35,6 @@ npm run build
 - `src/views` - сторінки для роутів.
 - `src/router` - конфігурації роутів.
 
-## Автори
+## Автор
 
 - [Сергій Кондратчук](https://github.com/Sergiyan92/)

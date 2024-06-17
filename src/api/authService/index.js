@@ -66,13 +66,13 @@ clientFetch.interceptors.request.use((request) => {
 clientFetch.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const errorCode = error.response.statusCode
+    const errorCode = error.response.status
 
     if (errorCode === 401) {
       try {
         return await authService.refresh()
       } catch (err) {
-        router.push('/api/auth/login')
+        router.push('/auth/login')
         return Promise.reject(err)
       }
     }
