@@ -13,7 +13,7 @@ export const logout = () => {
 }
 
 export const refresh = () => {
-  return clientFetch.get('/user/refresh')
+  return clientFetch.get('/api/auth/refresh')
 }
 
 export const getUserInfo = () => {
