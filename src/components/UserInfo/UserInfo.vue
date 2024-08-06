@@ -48,8 +48,8 @@ const openFileDialog = () => {
       >
         <img
           v-if="userInfo?.data?.avatarUrl"
-          :src="`https://travel-backend-3glj.onrender.com/${userInfo.data.avatarUrl.replace(/\\/g, '/')}`"
-          class="w-full h-full rounded-full"
+          :src="`${userInfo.data.avatarUrl.replace(/\\/g, '/')}`"
+          class="w-full h-full rounded-full object-cover"
         />
         <input type="file" ref="fileInput" @change="handleAvatarChange" class="hidden" />
       </div>
